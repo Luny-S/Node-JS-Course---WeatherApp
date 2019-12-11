@@ -1,9 +1,11 @@
 const request = require('request');
+const fs = require('fs');
 
-const authKey_Darksky_ = "852cab1c66a15f0986b4f1c481adad49";
-const authKey_Mapbox = "pk.eyJ1Ijoib2xlazEzMCIsImEiOiJjazQwZ3NmcjYwMWlmM2VzZmFyNndycjl3In0.PGf2acS62E6HNCcc60QmFA";
+const authKeys = JSON.parse(fs.readFileSync('../auth_keys.json').toString());
+const authKey_Darksky_ = authKeys.darksky;
+const authKey_Mapbox = authKeys.mapbox;
 
-const place = "los angeles";
+const place = "Wroclaw";
 let latitude = 0;
 let longitude = 0;
 
