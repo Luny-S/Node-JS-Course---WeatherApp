@@ -1,0 +1,19 @@
+{
+  "name": "Node-JS-Course---WeatherApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "scripts": {
+    "install": "npm install"
+  },
+  "repository": {
+    "url": "https://github.com/olek130/Node-JS-Course---WeatherApp"
+  },
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@types/node": "^12.12.14"
+  }
+}
