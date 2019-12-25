@@ -10,16 +10,16 @@ if(!address) {
     console.log("Please provide an address.");
 }
 else {
-    geocode(address, (error, data) => {
+    geocode(address, (error, {latitude, longitude, location}) => {
         if (error) {
             return console.log(error);
         }
 
-        forecast(data.longitude, data.latitude, (error, forecastData) => {
+        forecast(longitude, latitude, (error, forecastData) => {
             if (error) {
                 return console.log(error);
             }
-            console.log("Weather for: " + data.location + "( Longitude: " + data.longitude + (data.longitude >= 0 ? "E" : "W") + ", Latitude: " + data.latitude + (data.latitude >= 0 ? "N" : "S") + " )");
+            console.log("Weather for: " + location + "( Longitude: " + longitude + (longitude >= 0 ? "E" : "W") + ", Latitude: " + latitude + (latitude >= 0 ? "N" : "S") + " )");
             console.log(forecastData);
         });
     });

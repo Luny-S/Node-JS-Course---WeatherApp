@@ -10,14 +10,14 @@ const forecast = (longitude, latitude, callback) => {
     url += "?units=si";
     url += "&lang=en";
 
-    request({ url: url, json: true }, (error, response, body) => {
+    request({ url, json: true }, (error, { body }) => {
         if(error) {
             callback("Unable to connect to weather service", undefined);
-        } else if(response.body.error) {
-            callback("Error in the response : (" + response.body.code + ") "+ response.body.error, undefined);
+        } else if(body.error) {
+            callback("Error in the response : (" + body.code + ") "+ body.error, undefined);
         } else {
-            const data = response.body.currently;
-            callback(undefined, response.body.daily.data[0].summary + " It is currently " + data.temperature +
+            const data = body.currently;
+            callback(undefined, body.daily.data[0].summary + " It is currently " + data.temperature +
                 " degrees out. There is " + data.precipProbability + "% change of rain." );
         }
     });
